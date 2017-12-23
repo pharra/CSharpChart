@@ -14,6 +14,7 @@ namespace CSharp
         [STAThread]
         static void Main()
         {
+            new DataCollection();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
