@@ -36,13 +36,22 @@ namespace CSharp
         public DataObject GetDataObject()
         {
             DataObject dataObject = new DataObject();
-            foreach(var language in Segmenter.programLanguage)
+            foreach(var programLanguage in Segmenter.ProgramLanguage)
             {
                 var data =
                 from rawData in rawDataObject
-                where rawData.ToString().Contains(language)
+                where rawData.ToString().Contains(programLanguage)
                 select rawData;
-                dataObject.AllInfoObject.ProgramLanguage.Add(language, data.Count());
+                dataObject.AllInfoObject.ProgramLanguage.Add(programLanguage, data.Count());
+            }
+
+            foreach (var technologyStack in Segmenter.TechnologyStack)
+            {
+                var data =
+                from rawData in rawDataObject
+                where rawData.ToString().Contains(technologyStack)
+                select rawData;
+                dataObject.AllInfoObject.TechnologyStack.Add(technologyStack, data.Count());
             }
             return dataObject;
         }

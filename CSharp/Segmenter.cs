@@ -12,7 +12,7 @@ namespace CSharp
         private static JiebaSegmenter segmenter;
 
         // 编程语言
-        public static readonly List<string> programLanguage = new List<string> {
+        public static readonly List<string> ProgramLanguage = new List<string> {
                     "C++", "C#" , "Java" ,
                     "PHP" , "Python",
                     "JavaScript","HTML","C",
@@ -20,13 +20,13 @@ namespace CSharp
                 };
 
         // 技术栈
-        public static readonly List<string> technologyStack = new List<string>
+        public static readonly List<string> TechnologyStack = new List<string>
                 {
                     "linux","windows","Web",
                     "Docker","运维","后台",
                     "前端","后端","算法"
                 };
-        public static readonly List<string> job = new List<string> {
+        public static readonly List<string> Job = new List<string> {
 
         };
 
@@ -36,8 +36,8 @@ namespace CSharp
             if (segmenter == null)
             {
                 segmenter = new JiebaSegmenter();
-                List<string> temp = new List<string>().Concat(technologyStack)
-                    .Concat(programLanguage).Concat(job).ToList();
+                List<string> temp = new List<string>().Concat(TechnologyStack)
+                    .Concat(ProgramLanguage).Concat(Job).ToList();
                 foreach(var word in temp)
                 {
                     segmenter.AddWord(word);
