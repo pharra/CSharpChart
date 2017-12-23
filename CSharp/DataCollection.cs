@@ -53,6 +53,14 @@ namespace CSharp
                 select rawData;
                 dataObject.AllInfoObject.TechnologyStack.Add(technologyStack, data.Count());
             }
+            foreach (var job in Segmenter.Job)
+            {
+                var data =
+                from rawData in rawDataObject
+                where rawData.ToString().Contains(job)
+                select rawData;
+                dataObject.AllInfoObject.Job.Add(job, data.Count());
+            }
             return dataObject;
         }
     }
