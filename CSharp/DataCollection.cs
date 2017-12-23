@@ -44,7 +44,6 @@ namespace CSharp
                 select rawData;
                 dataObject.AllInfoObject.ProgramLanguage.Add(programLanguage, data.Count());
             }
-
             foreach (var technologyStack in Segmenter.TechnologyStack)
             {
                 var data =
