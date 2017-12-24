@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+//获取DataObject中的数据并遍历，便于绘制图表时调用数据
 namespace CSharp
 {
     class Chart
