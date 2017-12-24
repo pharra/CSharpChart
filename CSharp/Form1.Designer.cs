@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.Language = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -41,22 +41,22 @@
             // Language
             // 
             this.Language.BackColor = System.Drawing.Color.Transparent;
-            chartArea2.BackColor = System.Drawing.Color.Transparent;
-            chartArea2.Name = "ChartArea1";
-            this.Language.ChartAreas.Add(chartArea2);
-            legend2.BackColor = System.Drawing.Color.Transparent;
-            legend2.Name = "Legend1";
-            this.Language.Legends.Add(legend2);
-            this.Language.Location = new System.Drawing.Point(39, 104);
-            this.Language.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            chartArea1.BackColor = System.Drawing.Color.Transparent;
+            chartArea1.Name = "ChartArea1";
+            this.Language.ChartAreas.Add(chartArea1);
+            legend1.BackColor = System.Drawing.Color.Transparent;
+            legend1.Name = "Legend1";
+            this.Language.Legends.Add(legend1);
+            this.Language.Location = new System.Drawing.Point(58, 166);
+            this.Language.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Language.Name = "Language";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series2.IsValueShownAsLabel = true;
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.Language.Series.Add(series2);
-            this.Language.Size = new System.Drawing.Size(725, 361);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.IsValueShownAsLabel = true;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.Language.Series.Add(series1);
+            this.Language.Size = new System.Drawing.Size(1088, 578);
             this.Language.TabIndex = 0;
             this.Language.Text = "chart1";
             this.Language.Click += new System.EventHandler(this.Language_Click);
@@ -65,25 +65,25 @@
             // 
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.ItemHeight = 15;
+            this.comboBox1.ItemHeight = 24;
             this.comboBox1.Items.AddRange(new object[] {
             "语言分析",
             "岗位类型",
             "公司招聘",
             "按地址公司招聘"});
-            this.comboBox1.Location = new System.Drawing.Point(31, 31);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.comboBox1.Location = new System.Drawing.Point(46, 50);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(321, 23);
+            this.comboBox1.Size = new System.Drawing.Size(480, 32);
             this.comboBox1.TabIndex = 1;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(381, 31);
-            this.button1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.button1.Location = new System.Drawing.Point(572, 50);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(102, 33);
+            this.button1.Size = new System.Drawing.Size(153, 53);
             this.button1.TabIndex = 2;
             this.button1.Text = "查看";
             this.button1.UseVisualStyleBackColor = true;
@@ -91,22 +91,24 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(61, 483);
+            this.textBox1.Location = new System.Drawing.Point(92, 773);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(676, 25);
+            this.textBox1.Size = new System.Drawing.Size(1012, 35);
             this.textBox1.TabIndex = 3;
             this.textBox1.Text = "推荐：";
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(795, 571);
+            this.ClientSize = new System.Drawing.Size(1192, 914);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.Language);
-            this.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.Language)).EndInit();

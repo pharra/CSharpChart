@@ -29,22 +29,8 @@ namespace CSharp
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-           string selectedIndex = comboBox1.SelectedText;
         }
 
-        private void button1_Click(Chart chart)
-        {  
-                        List<string> xdata = chart.xData;
-                        List<int> ydata = chart.yData;
-
-                        List<string> xData = xdata;
-                        List<int> yData = ydata;
-
-                        Language.Series[0]["PieLabelStyle"] = "Outside";//将文字移到外侧
-                        Language.Series[0]["PieLineColor"] = "Black";//绘制黑色的连线。
-                        Language.Series[0].Points.DataBindXY(xData, yData);
-
-        }
 
 
         private void button1_Click(object sender, EventArgs e)
@@ -74,6 +60,11 @@ namespace CSharp
         }
 
         private void Language_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
