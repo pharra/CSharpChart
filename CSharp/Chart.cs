@@ -8,21 +8,20 @@ namespace CSharp
 {
     class Chart
     {
-        public void CsChart(DataObject dataObject)
+        public static Dictionary<List<string>,List<int>> ChartRender(Dictionary<string,int> dataObject)
         {
-            Dictionary<string, int> programLanguage = dataObject.AllInfoObject.ProgramLanguage;
-            xData = new List<string>();
-           yData = new List<int>();
-            foreach(var data in programLanguage)
+            Dictionary<List<string>, List<int>> pair = new Dictionary<List<string>, List<int>>();
+            List<string> xData = new List<string>();
+            List<int> yData = new List<int>();
+            foreach(var data in dataObject)
             {
                 string language = data.Key;
                 xData.Add(language);
                 int num = data.Value;
                 yData.Add(num);
             }
+            pair.Add(xData, yData);
+            return pair;
         }
-        public List<string> xData { set; get; }
-        public List<int> yData{ set; get; }
-
     }
 }

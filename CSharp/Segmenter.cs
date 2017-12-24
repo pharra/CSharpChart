@@ -22,13 +22,13 @@ namespace CSharp
         // 技术栈
         public static readonly List<string> TechnologyStack = new List<string>
                 {
-                    "linux","windows","Web",
-                    "Docker","运维","后台",
-                    "前端","后端","算法"
+                    "linux","Windows","Web",
+                    "Docker"
                 };
         public static readonly List<string> Job = new List<string> {
-
-        };
+                    "运维","后台",
+                    "前端","后端","算法"
+                };
 
 
         public static List<string> ChineseSegmenter(string content)
