@@ -17,15 +17,32 @@ namespace CSharp
             select language;
             int maxCount = data.First().Value;
             string maxLanguage = data.First().Key;
-            return maxLanguage + maxCount;
+            return maxLanguage + "语言的需求量最大，有" + maxCount + "个岗位可供选择。";
         }
 
-        public string CompanyAnalysis(DataObject dataObject, string placeName)
+        public string CompanyAnalysis(DataObject dataObject, string companyName)
         {
-            Dictionary<string, DataInfoObject> companyInfo = dataObject.CompanyObject;
+            Dictionary<string, DataInfoObject> allCompanyInfo = dataObject.CompanyObject;
+            DataInfoObject companyInfo = new DataInfoObject();
+            allCompanyInfo.TryGetValue(companyName, out companyInfo);
+            var position =
+                from technologyStack in companyInfo.TechnologyStack
+                orderby technologyStack.Value descending
+                select technologyStack;
+            int maxCount = position.First().Value;
+            string maxTecStack = position.First().Key;
+            return companyName + "对" + maxTecStack + "岗位的需求最大，共有" + maxCount + "个需求";
+        }
+
+        public string Address(DataObject dataObject, string addressName)
+        {
+            Dictionary<string, DataInfoObject> allAddressInfo = dataObject.CompanyObject;
+            DataInfoObject addressInfo = new DataInfoObject();
 
 
-            return null;
+            int maxCount;
+            string needestCompany;
+            return "在"+addressName+ ""+"";
         }
     }
 }
