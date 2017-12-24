@@ -11,11 +11,13 @@ namespace CSharp
         public DataObject()
         {
             CompanyObject = new Dictionary<string, DataInfoObject>();
+            AddressObject = new Dictionary<string, Dictionary<string, DataInfoObject>>();
             AllInfoObject = new DataInfoObject();
         }
 
         public DataInfoObject AllInfoObject { get; set; }
         public Dictionary<string, DataInfoObject> CompanyObject { get; set; }
+        public Dictionary<string, Dictionary<string, DataInfoObject>> AddressObject { get; set; }
 
     }
 
