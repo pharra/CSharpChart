@@ -20,7 +20,6 @@ namespace CSharp
             DataCollection dataCollection = new DataCollection();
             dataObject = dataCollection.GetDataObject();
             InitializeComponent();
-            
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -30,7 +29,7 @@ namespace CSharp
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            selectedIndex = comboBox1.SelectedIndex;
+           string selectedIndex = comboBox1.SelectedText;
         }
 
         private void button1_Click(Chart chart)
@@ -47,8 +46,30 @@ namespace CSharp
 
         }
 
+
         private void button1_Click(object sender, EventArgs e)
         {
+            switch (selectedIndex)
+            {
+                case 0://语言分析
+                    {
+                        Chart chart = new Chart();
+                        chart.CsChart(dataObject);
+                        List<string> xdata = chart.xData;
+                        List<int> ydata = chart.yData;
+
+
+                        Language.Series[0]["PieLabelStyle"] = "Outside";//将文字移到外侧
+                        Language.Series[0]["PieLineColor"] = "Black";//绘制黑色的连线。
+                        Language.Series[0].Points.DataBindXY(xdata, ydata);
+                    };
+                    break;
+                case 1://岗位类型
+                    {
+
+                    };
+                    break;
+            }
 
         }
     }
