@@ -35,6 +35,7 @@ namespace CSharp
             {
                 Dictionary<List<string>,List<int>> data= Chart.ChartRender(dataObject.AllInfoObject[comboBox2.SelectedIndex]);
                 chart1.Series[0].Points.DataBindXY(data.First().Key, data.First().Value);
+                //if(comboBox2.)
             }
             else if(comboBox1.SelectedIndex == 1)
             {
