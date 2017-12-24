@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CSharp
 {
-    class Analysis
+    class DataAnalysis
     {
         public string LanguageAnalysis(DataObject dataObject)
         {
