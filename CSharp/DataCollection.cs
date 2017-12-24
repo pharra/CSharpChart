@@ -83,6 +83,7 @@ namespace CSharp
                 dataObject.AddressObject.Add(addressName, company);
             }
 
+            Console.WriteLine("收集数据成功...");
             return dataObject;
         }
 
