@@ -23,26 +23,9 @@ namespace CSharp
         {
 
         }
-
-
-
-        private void 信息ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void chart1_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void 职业技能ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ProgramLanguage pl = new ProgramLanguage();
-            pl.MdiParent = this;
-            pl.Show();
-        }
-
-        private void 岗位需求ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            TechnologyStack ts = new TechnologyStack();
-            ts.MdiParent = this;
-            ts.Show();
         }
     }
 }
