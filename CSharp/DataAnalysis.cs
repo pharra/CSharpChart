@@ -34,7 +34,7 @@ namespace CSharp
             return companyName + "对" + maxTecStack + "岗位的需求最大，共有" + maxCount + "个需求";
         }
 
-        public string Address(DataObject dataObject, string addressName)
+        public string AddressAnalysis(DataObject dataObject, string addressName)
         {
             Dictionary<string, Dictionary<string, DataInfoObject>> allAddress = dataObject.AddressObject;
             Dictionary<string, DataInfoObject> addressInfo = new Dictionary<string, DataInfoObject>();
