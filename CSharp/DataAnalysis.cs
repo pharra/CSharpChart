@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace CSharp
 {
-    class Analysis
+    class DataAnalysis
     {
-        public string DataAnalysis(DataObject dataObject)
+        public string LanguageAnalysis(DataObject dataObject)
         {
             Dictionary<string, int> programLanguage = dataObject.AllInfoObject.ProgramLanguage;
             var data =

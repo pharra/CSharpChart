@@ -78,7 +78,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Analysis.cs" />
+    <Compile Include="DataAnalysis.cs" />
     <Compile Include="DataCollection.cs" />
     <Compile Include="DataObject.cs" />
     <Compile Include="Form1.cs">
