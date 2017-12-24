@@ -50,7 +50,6 @@ namespace CSharp
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -70,9 +69,15 @@ namespace CSharp
                     break;
                 case 1:
                     comboBox2.Items.AddRange(dataObject.CompanyObject.Keys.ToArray());
+                    comboBox3.Items.AddRange(new string[] { "按地址分布招聘需求", "技术栈种类和数目", "语言种类和数目", "工作岗位需求和数目" });
+                    comboBox3.Show();
+                    comboBox3.SelectedIndex = 0;
                     break;
                 case 2:
                     comboBox2.Items.AddRange(dataObject.AddressObject.Keys.ToArray());
+                    comboBox3.Items.AddRange(new string[] {"技术栈种类和数目", "语言种类和数目", "工作岗位需求和数目" });
+                    comboBox3.Show();
+                    comboBox3.SelectedIndex = 0;
                     break;
                 default:
                     MessageBox.Show("未知错误！请重新选择");
