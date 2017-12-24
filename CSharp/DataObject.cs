@@ -26,11 +26,13 @@ namespace CSharp
             ProgramLanguage = new Dictionary<string, int>();
             TechnologyStack = new Dictionary<string, int>();
             Job = new Dictionary<string, int>();
+            Address = new Dictionary<string, int>();
         }
 
         public Dictionary<string, int> ProgramLanguage;
         public Dictionary<string, int> TechnologyStack;
         public Dictionary<string, int> Job;
+        public Dictionary<string, int> Address;
     }
 
     class RawDataObject
