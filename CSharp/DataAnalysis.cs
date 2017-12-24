@@ -36,13 +36,19 @@ namespace CSharp
 
         public string Address(DataObject dataObject, string addressName)
         {
-            Dictionary<string, DataInfoObject> allAddressInfo = dataObject.CompanyObject;
-            DataInfoObject addressInfo = new DataInfoObject();
-
-
-            int maxCount;
-            string needestCompany;
-            return "在"+addressName+ ""+"";
+            Dictionary<string, Dictionary<string, DataInfoObject>> allAddress = dataObject.AddressObject;
+            Dictionary<string, DataInfoObject> addressInfo = new Dictionary<string, DataInfoObject>();
+            allAddress.TryGetValue(addressName, out addressInfo);
+            int maxCount = 0;
+            foreach (var company in addressInfo)
+            {
+                if (maxCount < company.Value.Job.Values.Sum())
+                {
+                    maxCount = company.Value.Job.Values.Sum();
+                }
+            }
+            string needestCompany = addressInfo.ElementAt(maxCount).Key;
+            return "在" + addressName + "，" + needestCompany + "公司对人才的需求最大，共有" + maxCount + "个岗位存在需求";
         }
     }
 }
