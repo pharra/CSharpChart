@@ -44,5 +44,10 @@ namespace CSharp
             Language.Series[0]["PieLineColor"] = "Black";//绘制黑色的连线。
             Language.Series[0].Points.DataBindXY(xdata, ydata);
         }
+
+        private void Language_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
