@@ -34,16 +34,16 @@ namespace CSharp
             from yourJob in job
             orderby yourJob.Value descending
             select yourJob;
-            int maxCount3 = data1.First().Value;
-            string maxJob = data1.First().Key;
+            int maxCount3 = data3.First().Value;
+            string maxJob = data3.First().Key;
             string result3 = maxJob + "岗位的需求量最大，有" + maxCount3 + "个岗位可供选择。";
             string advise3 = "建议学习者可以倾向于学习" + maxJob + "方面的知识，以便日后求职时能够有较多选择；而求职者则可以加深对" + maxJob + "的研究，以便在激烈的竞争中脱颖而出。";
             var data4 =
             from theAddress in address
             orderby theAddress.Value descending
             select theAddress;
-            int maxCount4 = data1.First().Value;
-            string maxAddress = data1.First().Key;
+            int maxCount4 = data4.First().Value;
+            string maxAddress = data4.First().Key;
             string result4 = maxAddress + "的人才需求量最大，有" + maxCount4 + "个岗位急需人才。";
             string advise4 = "建议求职者可以前往" + maxAddress + "进行求职";
             return result1 + "\n" + advise1 + "\n" + result2 + "\n" + advise2 + "\n" + result3 + "\n" + advise3 + "\n" + result4 + "\n" + advise4;
@@ -74,16 +74,16 @@ namespace CSharp
                 from yourJob in companyInfo.Job
                 orderby yourJob.Value descending
                 select yourJob;
-            int maxCount3 = data1.First().Value;
-            string maxJob = data1.First().Key;
+            int maxCount3 = data3.First().Value;
+            string maxJob = data3.First().Key;
             string result3 = companyName + "对" + maxJob + "的需求最大，共有" + maxCount3 + "个需求。";
             string advise3 = "建议对" + companyName + "感兴趣的求职者多了解" + maxJob + "方面的知识，以便提高进入心仪公司的概率。";
             var data4 =
                 from address in companyInfo.Address
                 orderby address.Value descending
                 select address;
-            int maxCount4 = data1.First().Value;
-            string maxAddress = data1.First().Key;
+            int maxCount4 = data4.First().Value;
+            string maxAddress = data4.First().Key;
             string result4 = companyName + "在" + maxAddress + "对人才的需求最大，共有" + maxCount4 + "个需求。";
             string advise4 = "建议对" + companyName + "感兴趣的求职者前往" + maxAddress + "，以便提高进入心仪公司的概率。";
             return result1 +"\n" + advise1 + "\n" + result2 + "\n" + advise2 + "\n" + result3 + "\n" + advise3 + "\n" + result4 + "\n" + advise4;

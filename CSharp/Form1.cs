@@ -41,6 +41,8 @@ namespace CSharp
                 {
                     chart1.Series[0].ChartType = SeriesChartType.Column;
                 }
+                // 推荐分析
+                richTextBox1.Text = DataAnalysis.LanguageAnalysis(dataObject);
             }
             else if(comboBox1.SelectedIndex == 1)
             {
@@ -52,6 +54,8 @@ namespace CSharp
                 {
                     chart1.Series[0].ChartType = SeriesChartType.Column;
                 }
+                // 推荐分析
+                richTextBox1.Text = DataAnalysis.CompanyAnalysis(dataObject, comboBox2.SelectedItem.ToString());
             }
             else if (comboBox1.SelectedIndex == 2)
             {
@@ -65,6 +69,8 @@ namespace CSharp
                 {
                     chart1.Series[0].ChartType = SeriesChartType.Column;
                 }
+                // 推荐分析
+                richTextBox1.Text = DataAnalysis.AddressAnalysis(dataObject, comboBox2.SelectedItem.ToString());
             }
         }
 
