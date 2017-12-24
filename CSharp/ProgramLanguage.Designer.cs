@@ -55,7 +55,6 @@
             this.chart1.Size = new System.Drawing.Size(664, 480);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
-            this.chart1.Click += new System.EventHandler(this.Form1_Load);
             // 
             // ProgramLanguage
             // 
