@@ -59,6 +59,7 @@
             this.Language.Size = new System.Drawing.Size(725, 361);
             this.Language.TabIndex = 0;
             this.Language.Text = "chart1";
+            this.Language.Click += new System.EventHandler(this.Language_Click);
             // 
             // comboBox1
             // 

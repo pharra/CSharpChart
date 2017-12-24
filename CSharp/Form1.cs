@@ -72,5 +72,10 @@ namespace CSharp
             }
 
         }
+
+        private void Language_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
