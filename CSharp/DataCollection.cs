@@ -38,11 +38,16 @@ namespace CSharp
             DataObject dataObject = new DataObject();
             dataObject.AllInfoObject = GetInfo(rawDataObject);
             List<string> companyName = new List<string>();
+            List<string> address = new List<string>();
             foreach (var rawData in rawDataObject)
             {
                 if (!companyName.Contains(rawData.CompanyName))
                 {
                     companyName.Add(rawData.CompanyName);
+                }
+                if (!address.Contains(rawData.WorkPlace))
+                {
+                    address.Add(rawData.WorkPlace);
                 }
             }
 
@@ -55,7 +60,29 @@ namespace CSharp
                     })
                 ));
             }
-            
+
+            foreach (string addressName in address)
+            {
+                Dictionary<string, DataInfoObject> company = new Dictionary<string, DataInfoObject>();
+                List<RawDataObject> addressData = rawDataObject.FindAll(
+                        delegate (RawDataObject rawData)
+                        {
+                            return rawData.WorkPlace.Equals(addressName);
+                        });
+                foreach (string name in companyName)
+                {
+                    List<RawDataObject> companyData = rawDataObject.FindAll(
+                        delegate (RawDataObject rawData)
+                        {
+                            return rawData.CompanyName.Equals(name);
+                        });
+                    company.Add(name, GetInfo(companyData));
+                    
+                       
+                }
+                dataObject.AddressObject.Add(addressName, company);
+            }
+
             return dataObject;
         }
 
