@@ -8,17 +8,24 @@ namespace CSharp
 {
     class Analysis
     {
-        public string DataAnalysis(DataObject dataObject)
+        public string LanguageAnalysis(DataObject dataObject)
         {
             Dictionary<string, int> programLanguage = dataObject.AllInfoObject.ProgramLanguage;
             var data =
             from language in programLanguage
             orderby language.Value descending
             select language;
-            int maxAsked = data.First().Value;
+            int maxCount = data.First().Value;
             string maxLanguage = data.First().Key;
-            return maxLanguage + maxAsked;
+            return maxLanguage + maxCount;
         }
 
+        public string CompanyAnalysis(DataObject dataObject, string placeName)
+        {
+            Dictionary<string, DataInfoObject> companyInfo = dataObject.CompanyObject;
+
+
+            return null;
+        }
     }
 }
