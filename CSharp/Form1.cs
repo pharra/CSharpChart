@@ -31,10 +31,18 @@ namespace CSharp
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //根据不同的菜单栏生成图表
+            chart1.Series[0].ChartType = SeriesChartType.Pie;
             if(comboBox1.SelectedIndex == 0)
             {
                 Dictionary<List<string>,List<int>> data= Chart.ChartRender(dataObject.AllInfoObject[comboBox2.SelectedIndex]);
                 chart1.Series[0].Points.DataBindXY(data.First().Key, data.First().Value);
+                if(comboBox2.SelectedIndex == 3)
+                {
+                    chart1.Series[0].ChartType = SeriesChartType.Column;
+                }
+                // 推荐分析
+                richTextBox1.Text = DataAnalysis.LanguageAnalysis(dataObject);
             }
             else if(comboBox1.SelectedIndex == 1)
             {
@@ -42,6 +50,12 @@ namespace CSharp
                 dataObject.CompanyObject.TryGetValue(comboBox2.SelectedItem.ToString(), out dataInfoObject);
                 Dictionary<List<string>, List<int>> data = Chart.ChartRender(dataInfoObject[comboBox3.SelectedIndex]);
                 chart1.Series[0].Points.DataBindXY(data.First().Key, data.First().Value);
+                if (comboBox3.SelectedIndex == 3)
+                {
+                    chart1.Series[0].ChartType = SeriesChartType.Column;
+                }
+                // 推荐分析
+                richTextBox1.Text = DataAnalysis.CompanyAnalysis(dataObject, comboBox2.SelectedItem.ToString());
             }
             else if (comboBox1.SelectedIndex == 2)
             {
@@ -49,8 +63,14 @@ namespace CSharp
                 DataInfoObject dataInfoObject = new DataInfoObject();
                 dataObject.AddressObject.TryGetValue(comboBox2.SelectedItem.ToString(), out dictionary);
                 dictionary.TryGetValue(comboBox3.SelectedItem.ToString(), out dataInfoObject);
-                Dictionary<List<string>, List<int>> data = Chart.ChartRender(dataInfoObject[comboBox3.SelectedIndex + 1]);
+                Dictionary<List<string>, List<int>> data = Chart.ChartRender(dataInfoObject[comboBox4.SelectedIndex + 1]);
                 chart1.Series[0].Points.DataBindXY(data.First().Key, data.First().Value);
+                if (comboBox4.SelectedIndex + 1 == 3)
+                {
+                    chart1.Series[0].ChartType = SeriesChartType.Column;
+                }
+                // 推荐分析
+                richTextBox1.Text = DataAnalysis.AddressAnalysis(dataObject, comboBox2.SelectedItem.ToString());
             }
         }
 
@@ -73,6 +93,7 @@ namespace CSharp
         {
         }
 
+        // 动态生成菜单栏
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             // 二级菜单三级菜单预设隐藏
