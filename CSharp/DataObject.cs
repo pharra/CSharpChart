@@ -35,6 +35,26 @@ namespace CSharp
         public Dictionary<string, int> TechnologyStack;
         public Dictionary<string, int> Job;
         public Dictionary<string, int> Address;
+
+        public Dictionary<string, int> this[int key]
+        {
+            get
+            {
+                switch (key)
+                {
+                    case 0:
+                        return Address;
+                    case 1:
+                        return TechnologyStack;
+                    case 2:
+                        return ProgramLanguage;
+                    case 3:
+                        return Job;
+                    default:
+                        return new Dictionary<string, int>();
+                }
+            }
+        }
     }
 
     class RawDataObject
