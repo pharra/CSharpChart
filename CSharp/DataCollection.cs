@@ -50,9 +50,9 @@ namespace CSharp
                 dataObject.CompanyObject.Add(name, 
                     GetInfo(rawDataObject.FindAll(
                     delegate (RawDataObject rawData)
-                {
-                    return rawData.CompanyName.Equals(name);
-                })
+                    {
+                        return rawData.CompanyName.Equals(name);
+                    })
                 ));
             }
             
@@ -67,7 +67,7 @@ namespace CSharp
             foreach (var programLanguage in Segmenter.ProgramLanguage)
             {
                 var data =
-                from rawData in rawDataObject
+                from rawData in partRawDataObject
                 where rawData.ToString().Contains(programLanguage)
                 select rawData;
                 dataInfoObject.ProgramLanguage.Add(programLanguage, data.Count());
@@ -75,7 +75,7 @@ namespace CSharp
             foreach (var technologyStack in Segmenter.TechnologyStack)
             {
                 var data =
-                from rawData in rawDataObject
+                from rawData in partRawDataObject
                 where rawData.ToString().Contains(technologyStack)
                 select rawData;
                 dataInfoObject.TechnologyStack.Add(technologyStack, data.Count());
@@ -83,7 +83,7 @@ namespace CSharp
             foreach (var job in Segmenter.Job)
             {
                 var data =
-                from rawData in rawDataObject
+                from rawData in partRawDataObject
                 where rawData.ToString().Contains(job)
                 select rawData;
                 dataInfoObject.Job.Add(job, data.Count());
@@ -95,8 +95,9 @@ namespace CSharp
                     continue;
                 }
                 var fitler =
-                from data in rawDataObject
-                select data.WorkPlace.Equals(rawData.WorkPlace);
+                from data in partRawDataObject
+                where data.WorkPlace.Equals(rawData.WorkPlace)
+                select data;
                 dataInfoObject.Address.Add(rawData.WorkPlace, fitler.Count());
             }
 
