@@ -79,8 +79,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataAnalysis.cs" />
     <Compile Include="Chart.cs" />
-    <Compile Include="Analysis.cs" />
     <Compile Include="DataCollection.cs" />
     <Compile Include="DataObject.cs" />
     <Compile Include="Form1.cs">

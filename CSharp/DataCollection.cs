@@ -60,6 +60,17 @@ namespace CSharp
                 select rawData;
                 dataObject.AllInfoObject.Job.Add(job, data.Count());
             }
+            foreach (var rawData in rawDataObject)
+            {
+                if (dataObject.AllInfoObject.Address.ContainsKey(rawData.WorkPlace))
+                {
+                    continue;
+                }
+                var fitler =
+                from data in rawDataObject
+                select data.WorkPlace.Equals(rawData.WorkPlace);
+                dataObject.AllInfoObject.Address.Add(rawData.WorkPlace, fitler.Count());
+            }
             return dataObject;
         }
     }
