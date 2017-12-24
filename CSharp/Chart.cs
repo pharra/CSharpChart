@@ -11,8 +11,8 @@ namespace CSharp
         public void CsChart(DataObject dataObject)
         {
             Dictionary<string, int> programLanguage = dataObject.AllInfoObject.ProgramLanguage;
-            List<string> xData = new List<string>();
-            List<int> yData = new List<int>();
+            xData = new List<string>();
+           yData = new List<int>();
             foreach(var data in programLanguage)
             {
                 string language = data.Key;
@@ -21,12 +21,8 @@ namespace CSharp
                 yData.Add(num);
             }
         }
-        public List<string> xData;
-        public List<int> yData;
+        public List<string> xData { set; get; }
+        public List<int> yData{ set; get; }
 
-        internal void CsChart()
-        {
-            throw new NotImplementedException();
-        }
     }
 }
