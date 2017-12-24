@@ -13,8 +13,11 @@ namespace CSharp
 {
     public partial class Form1 : Form
     {
+        private DataObject dataObject;
         public Form1()
         {
+            DataCollection dataCollection = new DataCollection();
+            dataObject = dataCollection.GetDataObject();
             InitializeComponent();
             
         }
@@ -24,6 +27,11 @@ namespace CSharp
 
         }
         private void chart1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
         {
 
         }
