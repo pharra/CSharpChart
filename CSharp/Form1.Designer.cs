@@ -47,7 +47,7 @@
             legend1.Name = "Legend1";
             this.Language.Legends.Add(legend1);
             this.Language.Location = new System.Drawing.Point(31, 83);
-            this.Language.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Language.Margin = new System.Windows.Forms.Padding(2);
             this.Language.Name = "Language";
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
@@ -61,12 +61,13 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.ItemHeight = 15;
             this.comboBox1.Items.AddRange(new object[] {
             "语言分析"});
             this.comboBox1.Location = new System.Drawing.Point(31, 31);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(321, 23);
             this.comboBox1.TabIndex = 1;
@@ -75,7 +76,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(381, 31);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(102, 33);
             this.button1.TabIndex = 2;
@@ -91,7 +92,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.Language);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.Language)).EndInit();
