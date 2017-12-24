@@ -14,49 +14,23 @@ namespace CSharp
     public partial class Form1 : Form
     {
         private DataObject dataObject;
-        private int selectedIndex;
         public Form1()
         {
             DataCollection dataCollection = new DataCollection();
             dataObject = dataCollection.GetDataObject();
             InitializeComponent();
+            comboBox1.SelectedIndex = 0;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            comboBox1.Items.Add("语言分析");
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
 
 
 
         private void button1_Click(object sender, EventArgs e)
         {
-            switch (selectedIndex)
-            {
-                case 0://语言分析
-                    {
-                        Chart chart = new Chart();
-                        chart.CsChart(dataObject);
-                        List<string> xdata = chart.xData;
-                        List<int> ydata = chart.yData;
-
-
-                        Language.Series[0]["PieLabelStyle"] = "Outside";//将文字移到外侧
-                        Language.Series[0]["PieLineColor"] = "Black";//绘制黑色的连线。
-                        Language.Series[0].Points.DataBindXY(xdata, ydata);
-                    };
-                    break;
-                case 1://岗位类型
-                    {
-
-                    };
-                    break;
-            }
-
         }
 
         private void Language_Click(object sender, EventArgs e)
@@ -67,6 +41,45 @@ namespace CSharp
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // 二级菜单三级菜单预设隐藏
+            comboBox2.Hide();
+            comboBox3.Hide();
+            comboBox2.Items.Clear();
+            comboBox3.Items.Clear();
+
+            // 展示二级菜单
+            comboBox2.Show();
+            switch (comboBox1.SelectedIndex)
+            {
+                case 0:
+                    comboBox2.Items.AddRange(new string[] { "按地址分布招聘需求", "技术栈种类和数目", "语言种类和数目", "工作岗位需求和数目" });
+                    break;
+                case 1:
+                    comboBox2.Items.AddRange(dataObject.CompanyObject.Keys.ToArray());
+                    break;
+                case 2:
+                    comboBox2.Items.AddRange(dataObject.AddressObject.Keys.ToArray());
+                    break;
+                default:
+                    MessageBox.Show("未知错误！请重新选择");
+                    return;
+            }
+            // 二级菜单默认选中第0项
+            comboBox2.SelectedIndex = 0;
         }
     }
 }
