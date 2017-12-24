@@ -71,7 +71,7 @@ namespace CSharp
                         });
                 foreach (string name in companyName)
                 {
-                    List<RawDataObject> companyData = rawDataObject.FindAll(
+                    List<RawDataObject> companyData = addressData.FindAll(
                         delegate (RawDataObject rawData)
                         {
                             return rawData.CompanyName.Equals(name);
@@ -83,6 +83,7 @@ namespace CSharp
                 dataObject.AddressObject.Add(addressName, company);
             }
 
+            Console.WriteLine("收集数据成功...");
             return dataObject;
         }
 
@@ -115,7 +116,7 @@ namespace CSharp
                 select rawData;
                 dataInfoObject.Job.Add(job, data.Count());
             }
-            foreach (var rawData in rawDataObject)
+            foreach (var rawData in partRawDataObject)
             {
                 if (dataInfoObject.Address.ContainsKey(rawData.WorkPlace))
                 {

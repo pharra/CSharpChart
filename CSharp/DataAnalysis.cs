@@ -38,7 +38,7 @@ namespace CSharp
             return result + advise;
         }
 
-        public string Address(DataObject dataObject, string addressName)
+        public string AddressAnalysis(DataObject dataObject, string addressName)
         {
             Dictionary<string, Dictionary<string, DataInfoObject>> allAddress = dataObject.AddressObject;
             Dictionary<string, DataInfoObject> addressInfo = new Dictionary<string, DataInfoObject>();
