@@ -36,13 +36,41 @@ namespace CSharp
         public DataObject GetDataObject()
         {
             DataObject dataObject = new DataObject();
-            foreach(var programLanguage in Segmenter.ProgramLanguage)
+            dataObject.AllInfoObject = GetInfo(rawDataObject);
+            List<string> companyName = new List<string>();
+            foreach (var rawData in rawDataObject)
+            {
+                if (!companyName.Contains(rawData.CompanyName))
+                {
+                    companyName.Add(rawData.CompanyName);
+                }
+            }
+
+            foreach(string name in companyName) {
+                dataObject.CompanyObject.Add(name, 
+                    GetInfo(rawDataObject.FindAll(
+                    delegate (RawDataObject rawData)
+                {
+                    return rawData.CompanyName.Equals(name);
+                })
+                ));
+            }
+            
+            return dataObject;
+        }
+
+
+
+        private DataInfoObject GetInfo(List<RawDataObject> partRawDataObject)
+        {
+            DataInfoObject dataInfoObject = new DataInfoObject();
+            foreach (var programLanguage in Segmenter.ProgramLanguage)
             {
                 var data =
                 from rawData in rawDataObject
                 where rawData.ToString().Contains(programLanguage)
                 select rawData;
-                dataObject.AllInfoObject.ProgramLanguage.Add(programLanguage, data.Count());
+                dataInfoObject.ProgramLanguage.Add(programLanguage, data.Count());
             }
             foreach (var technologyStack in Segmenter.TechnologyStack)
             {
@@ -50,7 +78,7 @@ namespace CSharp
                 from rawData in rawDataObject
                 where rawData.ToString().Contains(technologyStack)
                 select rawData;
-                dataObject.AllInfoObject.TechnologyStack.Add(technologyStack, data.Count());
+                dataInfoObject.TechnologyStack.Add(technologyStack, data.Count());
             }
             foreach (var job in Segmenter.Job)
             {
@@ -58,20 +86,21 @@ namespace CSharp
                 from rawData in rawDataObject
                 where rawData.ToString().Contains(job)
                 select rawData;
-                dataObject.AllInfoObject.Job.Add(job, data.Count());
+                dataInfoObject.Job.Add(job, data.Count());
             }
             foreach (var rawData in rawDataObject)
             {
-                if (dataObject.AllInfoObject.Address.ContainsKey(rawData.WorkPlace))
+                if (dataInfoObject.Address.ContainsKey(rawData.WorkPlace))
                 {
                     continue;
                 }
                 var fitler =
                 from data in rawDataObject
                 select data.WorkPlace.Equals(rawData.WorkPlace);
-                dataObject.AllInfoObject.Address.Add(rawData.WorkPlace, fitler.Count());
+                dataInfoObject.Address.Add(rawData.WorkPlace, fitler.Count());
             }
-            return dataObject;
+
+            return dataInfoObject;
         }
     }
 }
