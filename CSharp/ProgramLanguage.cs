@@ -18,13 +18,13 @@ namespace CSharp
         {
             InitializeComponent();
         }
-        private void Form1_Load(object sender, EventArgs e)
+        private void Form1_Load(Chart chart)
         {
+            List<string> xdata = chart.xData;
+            List<int> ydata = chart.yData;
 
-
-            List<string> xData = new List<string>() { "A", "B", "C", "D" };
-            List<int> yData = new List<int>() { 10, 20, 30, 40 };
-
+            List<string> xData = xdata;
+            List<int> yData = ydata;
 
             chart1.Series[0]["PieLabelStyle"] = "Outside";//将文字移到外侧
             chart1.Series[0]["PieLineColor"] = "Black";//绘制黑色的连线。
