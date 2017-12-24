@@ -8,7 +8,7 @@ namespace CSharp
 {
     class DataAnalysis
     {
-        public string LanguageAnalysis(DataObject dataObject)
+        public static string LanguageAnalysis(DataObject dataObject)
         {
             Dictionary<string, int> programLanguage = dataObject.AllInfoObject.ProgramLanguage;
             var data =
@@ -22,7 +22,7 @@ namespace CSharp
             return result + "\n" + advise;
         }
 
-        public string CompanyAnalysis(DataObject dataObject, string companyName)
+        public static string CompanyAnalysis(DataObject dataObject, string companyName)
         {
             Dictionary<string, DataInfoObject> allCompanyInfo = dataObject.CompanyObject;
             DataInfoObject companyInfo = new DataInfoObject();
@@ -38,7 +38,7 @@ namespace CSharp
             return result +"\n" + advise;
         }
 
-        public string AddressAnalysis(DataObject dataObject, string addressName)
+        public static string AddressAnalysis(DataObject dataObject, string addressName)
         {
             Dictionary<string, Dictionary<string, DataInfoObject>> allAddress = dataObject.AddressObject;
             Dictionary<string, DataInfoObject> addressInfo = new Dictionary<string, DataInfoObject>();
