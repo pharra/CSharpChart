@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace CSharp
 {
+    // 总数据类
     class DataObject
     {
         public DataObject()
@@ -21,6 +22,7 @@ namespace CSharp
 
     }
 
+    // 存储最小单元的信息
      class DataInfoObject
     {
         public DataInfoObject()
@@ -36,6 +38,7 @@ namespace CSharp
         public Dictionary<string, int> Job;
         public Dictionary<string, int> Address;
 
+        // 根据索引获取值
         public Dictionary<string, int> this[int key]
         {
             get
@@ -57,6 +60,7 @@ namespace CSharp
         }
     }
 
+    // 最开始的文本数据类
     class RawDataObject
     {
         public RawDataObject()

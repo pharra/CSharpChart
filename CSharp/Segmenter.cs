@@ -31,6 +31,7 @@ namespace CSharp
                 };
 
 
+        //中文分词
         public static List<string> ChineseSegmenter(string content)
         {
             if (segmenter == null)

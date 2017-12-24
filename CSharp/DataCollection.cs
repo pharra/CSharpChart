@@ -11,6 +11,7 @@ namespace CSharp
     {
         private List<RawDataObject> rawDataObject;
 
+        // 初始化类，从文本中读取所有数据
         public DataCollection()
         {
             try
@@ -33,10 +34,12 @@ namespace CSharp
             }
         }
 
+        // 进行数据分析
         public DataObject GetDataObject()
         {
             DataObject dataObject = new DataObject();
             dataObject.AllInfoObject = GetInfo(rawDataObject);
+            // 获取地址和公司名
             List<string> companyName = new List<string>();
             List<string> address = new List<string>();
             foreach (var rawData in rawDataObject)
@@ -61,6 +64,7 @@ namespace CSharp
                 ));
             }
 
+            // 根据地址和公司名分类获取数据
             foreach (string addressName in address)
             {
                 Dictionary<string, DataInfoObject> company = new Dictionary<string, DataInfoObject>();
@@ -88,10 +92,11 @@ namespace CSharp
         }
 
 
-
+        // 根据传入数据进行收集整理，使用linq方法
         private DataInfoObject GetInfo(List<RawDataObject> partRawDataObject)
         {
             DataInfoObject dataInfoObject = new DataInfoObject();
+            // 编程语言
             foreach (var programLanguage in Segmenter.ProgramLanguage)
             {
                 var data =
@@ -100,6 +105,7 @@ namespace CSharp
                 select rawData;
                 dataInfoObject.ProgramLanguage.Add(programLanguage, data.Count());
             }
+            // 技术栈
             foreach (var technologyStack in Segmenter.TechnologyStack)
             {
                 var data =
@@ -108,6 +114,7 @@ namespace CSharp
                 select rawData;
                 dataInfoObject.TechnologyStack.Add(technologyStack, data.Count());
             }
+            // 岗位
             foreach (var job in Segmenter.Job)
             {
                 var data =
@@ -116,6 +123,7 @@ namespace CSharp
                 select rawData;
                 dataInfoObject.Job.Add(job, data.Count());
             }
+            // 地址
             foreach (var rawData in partRawDataObject)
             {
                 if (dataInfoObject.Address.ContainsKey(rawData.WorkPlace))
